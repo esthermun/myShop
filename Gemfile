@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+#image attachment
+gem "paperclip", "~> 4.3"
+
 #materialize css
 gem 'materialize-sass'
 #pagination
