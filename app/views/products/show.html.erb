@@ -1,10 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<%= @product.inspect %>
 <p>
   <strong>Name:</strong>
   <%= @product.name %>
 </p>
-
+<% if @product.category %>
+  <strong>Category:</strong>
+  <%= @product.category.name %>
+<% end %>
 <p>
   <strong>Description:</strong>
   <%= @product.description %>

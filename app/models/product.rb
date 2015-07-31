@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-	# attr_accessible :name, :description, :price, :quantity, :active
+	# attr_accessible :name, :description, :price, :quantity, :active, :category_id
 	belongs_to :category
 
 	validates :name, :description, :price, :quantity, :active, presence: true
