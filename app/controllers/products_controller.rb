@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
-        format.html { render :new }
+        format.html { redirect_to @product, notice: 'Product was NOT successfully created.' }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
@@ -47,7 +47,10 @@ class ProductsController < ApplicationController
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
       else
-        format.html { render :edit }
+        format.html do 
+          @categories = Category.order(:name)
+          render :edit
+        end
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
@@ -74,6 +77,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :description, :price, :quantity, :active, :category_id)
+      params.require(:product).permit(:name, :description, :price, :quantity, :active, :category_id, :image)
     end
 end
