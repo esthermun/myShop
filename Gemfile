@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
-#
+#pagination
+gem 'kaminari'
+#fake data to populate
 gem 'faker'
 gem 'populator'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

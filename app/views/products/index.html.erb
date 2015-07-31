@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Products</h1>
-
+<%= paginate @products %>
 <table>
   <thead>
     <tr>
@@ -37,3 +37,5 @@
 <br>
 
 <%= link_to 'New Product', new_product_path %>
+
+<%= @products.inspect %>

@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_categories, only: [:new, :edit]
 
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.order('created_at desc').page(params[:page]).per(5)
   end
 
   # GET /products/1
@@ -15,12 +16,10 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
-    @categories = Category.order(:name)
   end
 
   # GET /products/1/edit
   def edit
-    @categories = Category.order(:name)
   end
 
   # POST /products
@@ -64,6 +63,9 @@ class ProductsController < ApplicationController
   end
 
   private
+    def set_categories
+       @categories = Category.order(:name)
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
