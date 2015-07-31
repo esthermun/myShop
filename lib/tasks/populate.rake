@@ -14,7 +14,7 @@ namespace :db do
 			product.status = Faker::Number.between(0,1)
 			product.created_at = Faker::Time.between(1.year.ago, Time.now)
 			product.quantity = Faker::Number.between(1,40)
-			product.category_id = Faker::Number.between(1,5)
+			product.category_id = Faker::Number.between(1,6)
 		end
 
 		Category.populate 6 do |category|

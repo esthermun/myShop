@@ -1,3 +1,5 @@
+
+
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Products</h1>
@@ -21,6 +23,8 @@
         <td><%= product.name %></td>
         <% if product.category %>
           <td><%= product.category.name %></td>
+           <% else %>
+          <td>Not yet created.</td>
          <% end %> 
         <td><%= product.description %></td>
         <td>$<%= product.price %></td>
@@ -36,6 +40,6 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
+
 
 <%= @products.inspect %>
