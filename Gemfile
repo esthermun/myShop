@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+#materialize css
+gem 'materialize-sass'
 #pagination
 gem 'kaminari'
 #fake data to populate
